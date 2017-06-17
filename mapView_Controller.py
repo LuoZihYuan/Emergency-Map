@@ -23,6 +23,7 @@ signals = np.zeros(0, dtype=SIGTYPE)
 points = np.zeros(0, dtype=PNTTYPE)
 
 fig = plt.figure()
+fig.canvas.set_window_title('Emergency Map')
 
 EARTH = Basemap(projection='mill')
 EARTH.drawcoastlines(linewidth=0.25)
