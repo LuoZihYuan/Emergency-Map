@@ -51,7 +51,7 @@ animation = FuncAnimation(fig, update, interval=ANIMATION_INTERVAL)
 def didReceiveGPS(sid, gpsLocation):
     global signals, points
     new_signal = np.array([(sid, gpsLocation)], dtype=SIGTYPE)
-    lat, lon = gpsLocation
+    lon, lat = gpsLocation
     new_point = np.array([(EARTH(lon, lat), 5, (0, 0, 1, 1), 1000)], dtype=PNTTYPE)
     signals = np.concatenate((signals, new_signal))
     points = np.concatenate((points,new_point))
