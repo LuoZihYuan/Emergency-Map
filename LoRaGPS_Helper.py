@@ -42,9 +42,12 @@ class LoRaGPSListener(Thread):
                 self.historyfile = open(path.join(__history__, self._date), "a", 1)
             self.historyfile.write(str(recent_time) + ' | Log: "' + output + '"\n')
             param = output.split(',')
-            sid = param[0]
-            gps = (float(param[1]), float(param[2]))
-            self.on_receive(sid, gps)
+            try:
+                sid = param[0]
+                gps = (float(param[1]), float(param[2]))
+                self.on_receive(sid, gps)
+            except IndexError:
+                pass
 
     def stop(self):
         """ Stop listening to GPS """

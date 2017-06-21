@@ -25,7 +25,8 @@ points = np.zeros(0, dtype=PNTTYPE)
 fig = plt.figure()
 fig.canvas.set_window_title('Emergency Map')
 
-EARTH = Basemap(projection='mill')
+EARTH = Basemap(projection='mill', resolution='f',
+                urcrnrlat=25.437273, urcrnrlon=122.204541, llcrnrlat=24.639907, llcrnrlon=120.683063)
 EARTH.drawcoastlines(linewidth=0.25)
 EARTH.fillcontinents(color='0.95')
 
